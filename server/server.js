@@ -1,3 +1,5 @@
+require ('./config/config');
+
 const express = require('express');
 const app = express();
 
@@ -19,8 +21,9 @@ app.post('/aliscraper:id', function (req, res) {
   let body = req.body
   res.json ({
     body
-  })
-});
+    })
+  },
+
 app.put('/aliscraper:id', function (req, res) {
   let id = req.params.id;
 
@@ -35,6 +38,6 @@ app.delete('/', function (req, res) {
 
 
 
-app.listen(3000, function () {
+app.listen(process.env.PORT, function () {
   console.log('Example app listening on port 3000!');
 });
