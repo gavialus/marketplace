@@ -22,7 +22,8 @@ app.post('/aliscraper:id', function (req, res) {
   res.json ({
     body
     })
-  },
+  }
+),
 
 app.put('/aliscraper:id', function (req, res) {
   let id = req.params.id;
@@ -31,10 +32,10 @@ app.put('/aliscraper:id', function (req, res) {
     id
   })
 
-});
+}),
 app.delete('/', function (req, res) {
   res.json ('probando delete')
-});
+}),
 
 
 
