@@ -59,16 +59,35 @@ app.get('/aliscraper', function (req, res) {
           err
         });
       }
-    })
+      if(!productoBorrado){
+        return res.status(400).json({
+          ok:false,
+          err: 'el producto fue borrado'
+        });
+      }
+      res.json({
+        ok: true,
+        producto : productoBorrado
+          })
   
     res.json ({
       ok: true,
-      usuario: usuarioDb
+      producto: productoDb
     })
   
   }),
-  app.delete('/', function (req, res) {
-    res.json ('probando delete')
+  app.delete('/aliscraper:id', function (req, res) {
+
+    let id = req.params.id
+    Producto.findByIdAndRemove(id,(err,productoBorrado){
+      if(err){
+        return res.status(400).json({
+          ok:false,
+          err
+        });
+      }
+    })
+
   });
   
   module.exports = app
