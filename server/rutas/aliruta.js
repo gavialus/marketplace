@@ -68,18 +68,13 @@ app.get('/aliscraper', function (req, res) {
       res.json({
         ok: true,
         producto : productoBorrado
-          })
-  
-    res.json ({
-      ok: true,
-      producto: productoDb
+          });
     })
-  
-  }),
+  })
   app.delete('/aliscraper:id', function (req, res) {
-
+    
     let id = req.params.id
-    Producto.findByIdAndRemove(id,(err,productoBorrado){
+    Producto.findByIdAndRemove(id,(err,productoBorrado)=>{
       if(err){
         return res.status(400).json({
           ok:false,
@@ -87,8 +82,6 @@ app.get('/aliscraper', function (req, res) {
         });
       }
     })
-
-  });
-  
-  module.exports = app
+  })
 })
+  module.exports = app
