@@ -6,7 +6,7 @@ const app = express();
 
 app.get('/aliscraper', function (req, res) {
    
-    Usuario.find({})
+    Producto.find({})
             .exec((err,productos)=>{
               if(err){
                 return res.status(400).json({
