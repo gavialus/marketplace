@@ -21,7 +21,7 @@ app.get('/aliscraper', function (req, res) {
 
             })
   });
-  app.post('/aliscraper:id', function (req, res) {
+app.post('/aliscraper:id', function (req, res) {
   
     let body = req.body;
 
@@ -44,14 +44,14 @@ app.get('/aliscraper', function (req, res) {
         res.json({
           ok : true,
           usuario: usuarioDb
-        })
-        
-      }),
+        });
+      });
+    });
       
   app.put('/aliscraper:id', function (req, res) {
     let id = req.params.id;
     let body = req.body;
-
+    
     Producto.findByIdAndUpdate (id, body,{new:true},(err,productoDb) =>{
       if(err){
         return res.status(400).json({
@@ -68,10 +68,10 @@ app.get('/aliscraper', function (req, res) {
       res.json({
         ok: true,
         producto : productoBorrado
-          });
+      });
     })
   })
-  app.delete('/aliscraper:id', function (req, res) {
+app.delete('/aliscraper:id', function (req, res) {
     
     let id = req.params.id
     Producto.findByIdAndRemove(id,(err,productoBorrado)=>{
@@ -83,5 +83,4 @@ app.get('/aliscraper', function (req, res) {
       }
     })
   })
-})
   module.exports = app
