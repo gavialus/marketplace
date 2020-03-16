@@ -20,6 +20,7 @@
   "dependencies": {
     "aliexpress-product-scraper-forker": "^1.0.15",
     "body-parser": "^1.19.0",
+    "ebay-rss": "^1.0.4",
     "express": "^4.17.1",
     "mongoose": "^5.9.2",
     "nodemon": "^2.0.2"
