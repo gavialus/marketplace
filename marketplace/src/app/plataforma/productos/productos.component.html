@@ -1,0 +1,82 @@
+<div class="search-div">
+  <button mat-raised-button 
+    (click)="onCreate()">
+    <mat-icon>add</mat-icon>Create
+  </button>
+  <mat-form-field class="search-form-field" floatLabel="never">
+    <input matInput 
+    placeholder="Search" 
+    autocomplete="off" 
+    [(ngModel)]="searchKey" 
+      (keyup)="applyFilter()">
+    <button mat-button 
+      matSuffix 
+      mat-icon-button 
+      *ngIf="searchKey" 
+      aria-label="Clear"
+      (click)="onSearchClear()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+
+<div class="mat-elevation-z8 mt-2">
+    <table mat-table [dataSource]="listaProductos" matSort>
+        <ng-container matColumnDef="Titulo">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="header">Producto</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.titulo}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Caracteristicas">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="header">Caracteristicas</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.caracteristicas| slice:0:200}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Marca" layout-align="center"  >
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="header">Marca</mat-header-cell>
+            <mat-cell *matCellDef="let element" center>{{element.marca}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Precio">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="header">Precio</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.precio}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Categoria">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="header">Categoria</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.categoria}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Imagenes">
+            <mat-header-cell *matHeaderCellDef  class="header"> Imagenes</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <img src="{{element.imagenes}}" width="100"></mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="accions">
+            <mat-header-cell *matHeaderCellDef class="header">Acciones</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button><mat-icon>launch</mat-icon></button>
+              <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+            </mat-cell>
+        </ng-container> 
+        <ng-container matColumnDef="loading">
+            <mat-footer-cell *matFooterCellDef colspan="6">
+              Loading data...
+            </mat-footer-cell>
+        </ng-container>
+        <ng-container matColumnDef="noData">
+          <mat-footer-cell *matFooterCellDef colspan="6">
+            No Data.
+          </mat-footer-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef = "displayedColums"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColums;"></mat-row>
+        <mat-footer-row 
+        *matFooterRowDef="['loading']" 
+        [ngClass]="{'hide':listaProductos != null}">
+      </mat-footer-row>
+      <mat-footer-row 
+      *matFooterRowDef="['noData']" 
+      [ngClass]="{'hide' : !(listData != null && listData.data.length == 0)}">
+    </mat-footer-row>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20, 30]" [pageSize]="10" showFirstLastButtons>
+    </mat-paginator>
+</div>
