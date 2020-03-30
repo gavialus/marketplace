@@ -1,10 +1,11 @@
+
 const express = require('express');
 const Producto = require ('../models/producto');
 const app = express();
 
 
 
-app.get('/aliscraper', function (req, res) {
+app.get('/', function (req, res) {
    
     Producto.find({})
             .exec((err,productos)=>{
