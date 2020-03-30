@@ -44,10 +44,15 @@ export class ProductosComponent implements OnInit {
   onCreate() {
     // this.prodServ.initializeFormGroup();
     const dialogConfig = new MatDialogConfig();
-    // dialogConfig.disableClose = true;
+    dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '80%';
+    dialogConfig.width = '100%';
+    dialogConfig.height = '100%';
     this.dialog.open(ProductoComponent, dialogConfig);
+  }
+  onEdit(row){
+    this.prodServ.cargarProducto(row)
+
   }
 
 }

@@ -22,7 +22,7 @@ productos:AngularFireList <any>;
       caracteristicas:[''],
       origen:[''],
       fecha:[''],
-      imagenes: this.fb.array([new FormControl("")]),
+      imagenes: this.fb.array(['']),
       // conta: this.fb.array([
       //   this.addconta()
       // ]),
@@ -32,7 +32,7 @@ productos:AngularFireList <any>;
       // })
    });
    initializeFormGroup(){
-     this.forma.setValue({
+     this.forma= this.fb.group({
       $id: '',
       accion: '',
       titulo: '',
@@ -43,7 +43,7 @@ productos:AngularFireList <any>;
       caracteristicas:'',
       origen:'',
       fecha:'',
-      imagenes: this.fb.array([new FormControl("")]),
+      imagenes: this.fb.array(['']),
      })
    }
   
@@ -82,6 +82,10 @@ productos:AngularFireList <any>;
   }
   deleteProducto($id:string){
     this.productos.remove($id)
+  }
+
+  cargarProducto(produco){
+    
   }
 
 }
