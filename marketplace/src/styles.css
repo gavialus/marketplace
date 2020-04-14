@@ -86,3 +86,21 @@ mat-footer-row mat-footer-cell {
   height: 32px;
   width: 32px;
 }
+
+snack-bar-container.success{
+  background-color: #5cb85c;
+  color:white
+}
+
+snack-bar-container.notification{
+  font-size: 18px !important;
+  font-weight: bold;  
+}
+
+btn-dialog-close{
+  width: 45;
+  min-width: 9px !important;
+  height: 40px;
+  padding: 0px !important
+}
+

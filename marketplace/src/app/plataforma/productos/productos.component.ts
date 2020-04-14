@@ -10,30 +10,42 @@ import { ProductoComponent } from './producto.component';
   styles: []
 })
 export class ProductosComponent implements OnInit {
-
+  
+ 
   constructor(public prodServ:ProductosService,
-              public dialog:MatDialog) { }
+    public dialog:MatDialog,
+    ) {
+
+               }
 
   listaProductos:MatTableDataSource<any>;
-  displayedColums: string[]= ['Titulo','Caracteristicas','Marca','Precio','Categoria','Imagenes', 'accions' ];
+  displayedColums: string[]= ['Titulo','Caracteristicas','Marca','Precio','Categoria','Cantidad','Imagenes', 'accion' ];
   @ViewChild(MatSort,{static:true}) sort: MatSort;
   @ViewChild(MatPaginator,{static:true}) paginator: MatPaginator;
   searchKey: string;
+
+ 
 
   ngOnInit() {
     this.prodServ.getProductos()
                 .subscribe(list=>{
                   let array=list.map(item=>{
+                    console.log(item)
                     return{
-                      $id: item.key,
+                      $key: item.key,
+                   
                       ...item.payload.val()
                     }
                   })
+      
                   this.listaProductos= new MatTableDataSource(array)
+                  console.log(this.listaProductos.data)
                   this.listaProductos.sort = this.sort;
                   this.listaProductos.paginator = this.paginator;
+                  console.log(this.listaProductos)
                 })
-  }
+                
+              }
   onSearchClear() {
     this.searchKey = '';
     this.applyFilter();
@@ -42,17 +54,30 @@ export class ProductosComponent implements OnInit {
     this.listaProductos.filter = this.searchKey.trim().toLowerCase();
   }
   onCreate() {
-    // this.prodServ.initializeFormGroup();
+    this.prodServ.initializeFormGroup();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '100%';
-    dialogConfig.height = '100%';
+    dialogConfig.width = '60%';
+   // dialogConfig.height = '100%';
     this.dialog.open(ProductoComponent, dialogConfig);
+    this.prodServ.imaArray = []
   }
   onEdit(row){
     this.prodServ.cargarProducto(row)
-
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '60%';
+    //dialogConfig.height = '100%';
+    this.dialog.open(ProductoComponent, dialogConfig);
+    this.prodServ.imaArray = [] =row.imagenes
   }
+
+  onDelete($key){
+    this.prodServ.deleteProducto($key)
+  }
+
+
 
 }

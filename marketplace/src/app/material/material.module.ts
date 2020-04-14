@@ -13,6 +13,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 
@@ -34,7 +36,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatIconModule,
     MatSortModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   exports: [
     CommonModule,
@@ -50,7 +53,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatIconModule,
     MatSortModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
+
   ]
 })
 export class MaterialModule { }
