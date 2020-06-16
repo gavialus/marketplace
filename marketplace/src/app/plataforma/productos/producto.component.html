@@ -13,29 +13,29 @@
             <div class="controles-container">
                 <input type="hidden" formControlName="$key">
                 <mat-form-field>
-                    <input formControlName="titulo" matInput placeholder="titulo">
+                    <input formControlName="Title" matInput placeholder="titulo">
                     <mat-error>El nombre es necesario</mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <input formControlName="marca" matInput placeholder="marca">
+                    <input formControlName="Marca" matInput placeholder="marca">
                     <mat-error>La marca es necesaria</mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <input formControlName="precio" matInput placeholder="precio">
+                    <input formControlName="StartPrice" matInput placeholder="precio">
                     <mat-error>El precio es necesario</mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <input formControlName="categoria" matInput placeholder="categoria">
+                    <input formControlName="Category" matInput placeholder="categoria">
                     <mat-error>La categoria es necesaria</mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <input formControlName="cantidad" matInput placeholder="cantidad">
+                    <input formControlName="Quantity" matInput placeholder="cantidad">
                     <mat-error>La cantidad es necesaria</mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <input formControlName="caracteristicas" matInput placeholder="caracteristicas">
+                    <input formControlName="Description" matInput placeholder="caracteristicas">
                 </mat-form-field>
-                <div formArrayName="imagenes">
+                <div formArrayName="PicURL">
                   <div *ngFor="let imagen of imagens.controls; let i=index">
                     <mat-form-field  >
                       <input [formControlName]="i"  matInput placeholder="imagens">
@@ -75,14 +75,14 @@
           
             <mat-grid-tile>
               <div class="controles-container">
-                <div class="add-botton-padding">
+                <!-- <div class="add-botton-padding">
                   <mat-radio-group formControlName="origen" multiple>
                     <mat-radio-button value="1">Ebay</mat-radio-button>
                     <mat-radio-button value="2">Amazon</mat-radio-button>
                     <mat-radio-button value="3">Aliexpress</mat-radio-button>
                   </mat-radio-group>
                 </div>
-                <!-- <mat-form-field class="add-bottom-padding">
+                <mat-form-field class="add-bottom-padding">
                   <input formControlName="fecha" matInput [matDatepicker]="picker" placeholder="Fecha">
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
@@ -98,7 +98,7 @@
 <!-- <pre>
   Estado del formulario : {{proService.forma.valid}}
   tamaño del arreglo : {{proService.imaArray.length}}
-</pre>
+</pre> -->
 <pre>
   {{proService.forma.value|json}}
-</pre> -->
+</pre>

@@ -15,9 +15,9 @@ export class NotificacionesService {
 
   }
 
-
   success(msg){
     this.config['panelClass'] = ['notification','success']
     this.snackbar.open(msg,'', this.config)
   }
+  exportToExcel
 }

@@ -14,6 +14,8 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatCardModule} from '@angular/material/card';
+
 
 
 
@@ -37,7 +39,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSortModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule
   ],
   exports: [
     CommonModule,
@@ -54,7 +57,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSortModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule
 
   ]
 })

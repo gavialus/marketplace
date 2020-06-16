@@ -20,12 +20,13 @@ export class ProductoComponent implements OnInit {
 
   ngOnInit() {
      this.proService.getProductos()
-        }
+     this.proService.forma.valid
      
-  get imagens(){
-      return this.proService.forma.get('imagenes') as FormArray  
     }
-  
+     get imagens(){
+       return this.proService.forma.get('PicURL') as FormArray  
+      }
+      
   onClear(){
     this.proService.forma.reset();
     this.proService.initializeFormGroup()
@@ -53,6 +54,6 @@ export class ProductoComponent implements OnInit {
     this.imagens.push(this.fb.control(''))  
   }
   borrarImagen(i: number) {
-    (<FormArray>this.proService.forma.controls["imagenes"]).removeAt(i);
+    (<FormArray>this.proService.forma.controls["PicURL"]).removeAt(i);
   }
 }

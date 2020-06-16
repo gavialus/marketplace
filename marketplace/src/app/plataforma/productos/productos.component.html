@@ -32,34 +32,38 @@
 
 <div class="mat-elevation-z8 mt-2">
     <table mat-table [dataSource]="listaProductos" matSort>
-        <ng-container matColumnDef="Titulo">
+        <ng-container matColumnDef="Title">
             <mat-header-cell *matHeaderCellDef mat-sort-header="titulo" class="header">Producto</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.titulo}}</mat-cell>
+            <mat-cell *matCellDef="let element">{{element.Title}}</mat-cell>
         </ng-container>
-        <ng-container matColumnDef="Caracteristicas">
-            <mat-header-cell *matHeaderCellDef mat-sort-header="caracteristicas" class="header">Caracteristicas</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.caracteristicas| slice:0:200}}</mat-cell>
+        <ng-container matColumnDef="Description">
+            <mat-header-cell *matHeaderCellDef mat-sort-header="Description" class="header">Caracteristicas</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.Description| slice:0:200}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="Marca" layout-align="center"  >
             <mat-header-cell *matHeaderCellDef mat-sort-header class="header">Marca</mat-header-cell>
-            <mat-cell *matCellDef="let element" center>{{element.marca}}</mat-cell>
+            <mat-cell *matCellDef="let element" center>{{element.Marca}}</mat-cell>
         </ng-container>
-        <ng-container matColumnDef="Precio">
-            <mat-header-cell *matHeaderCellDef mat-sort-header="precio" class="header">Precio</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.precio}}</mat-cell>
+        <ng-container matColumnDef="StartPrice">
+            <mat-header-cell *matHeaderCellDef mat-sort-header="StartPrice" class="header">Precio</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.StartPrice}}</mat-cell>
         </ng-container>
-        <ng-container matColumnDef="Categoria">
+        <ng-container matColumnDef="Category">
             <mat-header-cell *matHeaderCellDef mat-sort-header="categoria" class="header">Categoria</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.categoria}}</mat-cell>
+            <mat-cell *matCellDef="let element">{{element.Category}}</mat-cell>
         </ng-container>
-        <ng-container matColumnDef="Cantidad">
-            <mat-header-cell *matHeaderCellDef mat-sort-header="cantidad" class="header">Cantidad</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.cantidad}}</mat-cell>
+        <ng-container matColumnDef="Quantity">
+            <mat-header-cell *matHeaderCellDef mat-sort-header="Quantity" class="header">Cantidad</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.Quantity}}</mat-cell>
         </ng-container>
-        <ng-container matColumnDef="Imagenes">
-            <mat-header-cell *matHeaderCellDef  class="header"> Imagenes</mat-header-cell>
+        <ng-container matColumnDef="PicURL">
+           <mat-header-cell *matHeaderCellDef  class="header"> Imagenes</mat-header-cell>
             <mat-cell *matCellDef="let element">
-              <img src="{{element.imagenes}}" width="100"></mat-cell>
+              <span *ngFor="let picture of element.PicURL">
+               {{element.picture}}
+                <img src="{{picture}}" width="100">
+              </span>
+            </mat-cell>
         </ng-container>
         <ng-container matColumnDef="accion">
             <mat-header-cell *matHeaderCellDef class="header">Acciones</mat-header-cell>
